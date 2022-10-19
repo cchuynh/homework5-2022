@@ -1,0 +1,162 @@
+/* logo animation */
+#logo {
+    animation: logo 5s;
+    width: 475px;
+}
+
+/* logo animation reference */
+@keyframes logo {
+    from {width: 25px;}
+    to {width: 475px;}
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* prefers-reduced-motion selected --> no logo animation */
+@media (prefers-reduced-motion: reduce){
+    #logo{
+        animation: none;
+    }
+}
+
+/* body styling */
+body {
+    font-family: "Poppins", serif;
+    background-image: url(../images/concrete_seamless.png);
+    background-color: #f1f1f1;
+}
+
+/* header styling */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* nav_links styling */
+.nav_links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* nav_links styling after they have been visited */
+.nav_item a:visited{
+    color: blue;
+}
+
+/*  header elements that are direct children of a card class styling */
+div.card > header{ 
+    background-color: #288088;
+    border: solid 2px #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* card class styling*/
+.card{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 450px;
+    border-radius: 0px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* pricing class styling */
+.pricing{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* gallery images styling */
+.gallery img{
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* gallery class styling */
+.gallery{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* screen-size that is greater than 900px styling */
+@media screen and (min-width:900px){
+
+    /* styling header */
+    header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* styling nav_links */
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-between;
+    }
+
+    /* styling card class */
+    .card{
+        flex-basis: 275px;
+    }
+    
+    /* changes first header to stay at top of screen when scrolling */
+    body > header{
+        position: sticky; 
+        top: 0;
+    }
+}
+
+/* print mode styling */
+@media print{
+
+    /* body styling */
+    body{
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
+    
+    /* styles nav_links to make sure elements are spaced out */
+    .nav_links{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    /* styling: nav so elements are spaced out */
+    nav{
+        width: 100%;
+    }
+
+    /* styling: pricing class so elements align at bottom */
+    .pricing{
+        flex-wrap: nowrap;
+        align-items: flex-end;
+    }
+
+    /* card class styling */
+    .card{
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+    }
+
+    /* gallery is no longer visible */
+    #gallery{
+        display: none;
+    }
+
+    /* adds thumbs up emoji to card class */
+    .card li:nth-child(2)::after{
+        content: '\01F44D'
+    }
+}
